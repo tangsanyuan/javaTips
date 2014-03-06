@@ -1,0 +1,46 @@
+
+1. Comparator
+For Java,the Comparator<T> is an interface, we may create a class that implements this interface to sort the desired project.
+
+public class ListNode {
+	int val;
+	ListNode next;
+	ListNode(int x) {
+		val = x;
+		next = null;
+	}
+}
+
+
+
+class ListNodeComparator implements Comparator<ListNode>{
+    @Override
+    public int compare(ListNode a, ListNode b){
+        return a.val - b.val;
+    }
+}
+
+Queue<ListNode> pq = new PriorityQueue<ListNode>(lists.size(), new ListNodeComparator());
+Collections.sort(lists, new ListNodeComparator());
+
+In this way, we can create the PriorityQueue for a custom class or sort the list with the desired comparator
+
+2. Java substring
+
+Node: different with C++. Java substring function takes different args.
+eg. 
+String example;
+example.substring(i) 	// create substring from position i to the end
+example.substring(i,j)  // create substring BETWEEN i and j.
+
+3. Java String sort by character.
+
+Different from C++, Java string class is immutable. It's a bit inconvinent to sort a String alphabetically。
+
+Here is the sample code:
+
+String getSortFromString(String str){
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        return new String(chars);
+    }
